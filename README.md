@@ -1,16 +1,12 @@
 # intermediate_project
+## berikut adalah aplikasi yang akan dikembangkan pada intermediate class amcc 2024
 
-A new Flutter project.
+untuk penggunaanya sebagai berikut
+1. anda dapat cloning code ini
+2. set up firebase
+3. ...
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   flow fitur app :
+   1. LOGIN/Signup
+   2. homepage dapat add new note pada homepage dengan button yang ada di homepage
+ 
