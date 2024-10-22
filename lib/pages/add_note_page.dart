@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class AddNotePage extends StatefulWidget {
   final Function(String, String) onSave;
 
-  const AddNotePage({Key? key, required this.onSave}) : super(key: key);
+  const AddNotePage({super.key, required this.onSave});
 
   @override
   _AddNotePageState createState() => _AddNotePageState();

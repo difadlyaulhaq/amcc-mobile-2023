@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/kuliah_difa/projekan/amcc/intermediate_class_ui/intermediate_project/linux"
+    "cmake.sourceDirectory": "D:/kuliah_difa/projekan/amcc/intermediate_class_ui/intermediate_project/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

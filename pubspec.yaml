@@ -33,6 +33,11 @@ dependencies:
   go_router: ^14.2.7
   cupertino_icons: ^1.0.8
   google_fonts: ^6.2.1
+  firebase_auth: ^5.2.1
+  flutter_bloc: ^8.1.6
+  firebase_core: ^3.4.1
+  bloc: ^8.1.4
+  cloud_firestore: ^5.4.2
 
 dev_dependencies:
   flutter_test:

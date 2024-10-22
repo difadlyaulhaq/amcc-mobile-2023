@@ -1,12 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intermediate_project/routes/router.dart';
 import 'package:intermediate_project/shared/theme/theme.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
 
   @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  @override
   Widget build(BuildContext context) {
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: whiteColor, 
       body: ListView(
@@ -66,6 +75,7 @@ class SignupPage extends StatelessWidget {
                     const SizedBox(height: 10),
                     // Email Field
                     TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor:whiteColor,
@@ -80,6 +90,7 @@ class SignupPage extends StatelessWidget {
 
                     // Password Field
                     TextField(
+                      controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
@@ -95,6 +106,7 @@ class SignupPage extends StatelessWidget {
                     const SizedBox(height: 10),
                     // Password Field
                     TextField(
+                      
                       obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
@@ -114,8 +126,14 @@ class SignupPage extends StatelessWidget {
                       width: double.infinity,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () {
-                          router.goNamed(Routnames.home);
+                        onPressed: () async {
+                          try {
+                            await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+                            context.goNamed(Routnames.login);
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("pendaftaran gagal")));
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: blackColor,

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intermediate_project/bloc/auth/auth_bloc.dart';
 import 'package:intermediate_project/routes/router.dart';
 import 'package:intermediate_project/shared/theme/theme.dart';
 
@@ -7,6 +10,9 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //add textediting controller
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: whiteColor, 
       body: ListView(
@@ -60,6 +66,7 @@ class LoginPage extends StatelessWidget {
 
                     // Email Field
                     TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor:whiteColor,
@@ -74,6 +81,7 @@ class LoginPage extends StatelessWidget {
 
                     // Password Field
                     TextField(
+                      controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
@@ -109,7 +117,11 @@ class LoginPage extends StatelessWidget {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          router.goNamed(Routnames.home);
+                          context.read<AuthBloc>().add(AuthEventLogin(
+                              emailController.text,
+                              passwordController.text,
+                          ));
+
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: blackColor,
@@ -117,9 +129,23 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30),
                           ),
                         ),
-                        child:  Text('Login',
-                        style: whiteColorTextStyle.copyWith(fontSize: 15),
-                        ),
+                        child: BlocConsumer<AuthBloc, AuthState>(
+                          builder: (context, state) {
+                            if (state is AuthStateLoading){
+                              return const CircularProgressIndicator();
+                            }
+                            return const Text("login");
+                          }, listener: (context, state){
+                          if (state is AuthStateLogin) {
+                            context.goNamed(Routnames.home); 
+                          }else if (state is AuthStateError){
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(state.message),
+                                duration: const Duration(seconds: 2),
+                                )
+                              );
+                          } 
+                        })
                       ),
                     ),
                     const SizedBox(height: 20),
