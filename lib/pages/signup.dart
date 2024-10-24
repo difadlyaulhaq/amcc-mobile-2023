@@ -129,7 +129,7 @@ class _SignupPageState extends State<SignupPage> {
                         onPressed: () async {
                           try {
                             await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
-                            context.goNamed(Routnames.login);
+                            router.goNamed(Routnames.login);
                           } catch (e) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text("pendaftaran gagal")));

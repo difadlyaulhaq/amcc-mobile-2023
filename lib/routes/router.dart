@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:intermediate_project/pages/NotesHomePage.dart';
+import 'package:intermediate_project/pages/noteshomepage.dart';
 import 'package:intermediate_project/pages/signup.dart';
 import '../pages/splash.dart';
 import '../pages/login.dart';
