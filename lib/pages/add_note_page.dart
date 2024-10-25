@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 class AddNotePage extends StatefulWidget {
   final Function(String, String) onSave;
 
-  const AddNotePage({Key? key, required this.onSave}) : super(key: key);
+  const AddNotePage({super.key, required this.onSave});
 
   @override
   _AddNotePageState createState() => _AddNotePageState();
@@ -26,7 +25,8 @@ class _AddNotePageState extends State<AddNotePage> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Add New Note', style: TextStyle(color: Colors.black)),
+        title:
+            const Text('Add New Note', style: TextStyle(color: Colors.black)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

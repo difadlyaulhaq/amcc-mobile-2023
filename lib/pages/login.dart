@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intermediate_project/routes/router.dart';
 import 'package:intermediate_project/shared/theme/theme.dart';
+
+import '../routes/router.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -8,203 +9,182 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteColor,
       body: SafeArea(
-        child: ListView(
-          children: [
-            // Logo di bagian atas
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 40),
-                child: Image.asset(
-                  'lib/shared/assets/amcc-logo.png',
-                  height: 120,
+        child: ListView(children: [
+          Stack(
+            children: [
+              Container(
+                color: primaryColor1,
+                height: 320,
+                width: double.infinity,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 50),
+                    child: Image.asset(
+                      "lib/shared/assets/amcc-logo-putih.png",
+                      width: 120,
+                      height: 120,
+                    ),
+                  ),
                 ),
               ),
-            ),
-
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: primaryColor1,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(
-                      42,
-                    ),
-                    topRight: Radius.circular(
-                      42,
+              Padding(
+                padding: const EdgeInsets.only(top: 250),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(82),
                     ),
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Halaman Login',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: whiteColor,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 32,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        'Silahkan Masukan Email Dan Password Anda',
-                        style: whiteColorTextStyle.copyWith(
-                          fontSize: 12,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(
-                        height: 32,
-                      ),
-
-                      // Email Field
-                      TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: whiteColor,
-                          hintText: 'Masukkan email kamu',
-                          hintStyle: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                          prefixIcon: const Icon(Icons.mail),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-
-                      // Password Field
-                      TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: whiteColor,
-                          hintText: 'Masukkan password kamu',
-                          hintStyle: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                          prefixIcon: const Icon(Icons.lock),
-                          suffixIcon: const Icon(Icons.visibility),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-
-                      // Forgot Password Link
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            // Tambahkan fungsi lupa password
-                          },
-                          child: Text(
-                            'Lupa Password?',
-                            style: whiteColorTextStyle.copyWith(fontSize: 12),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-
-                      // Login Button
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            router.goNamed(Routnames.home);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: blackColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
+                        Center(
                           child: Text(
                             'Login',
-                            style: whiteColorTextStyle.copyWith(fontSize: 15),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-
-                      // Google Sign-in Button
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: ElevatedButton.icon(
-                          onPressed: () {
-                            // Tambahkan fungsi login dengan Google
-                          },
-                          icon: Image.asset(
-                            'lib/shared/assets/super g (2).png',
-                          ),
-                          label: const Text(
-                            'Masuk Dengan Google',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+                            style: blackColorTextStyle.copyWith(
+                              fontSize: 24,
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 20),
 
-                      // Sign-up Link
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Belum memiliki akun?',
-                            style: blackColorTextStyle.copyWith(fontSize: 15),
+                        const SizedBox(
+                          height: 32,
+                        ),
+                        // Email Field
+                        Text(
+                          'Email',
+                          style: blackColorTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
                           ),
-                          TextButton(
+                        ),
+                        const SizedBox(height: 4),
+                        TextField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: whiteColor,
+                            hintText: 'Masukkan email kamu',
+                            hintStyle: greyColorTextStyle.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w200,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        // Password Field
+                        Text(
+                          'Password',
+                          style: blackColorTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: whiteColor,
+                            hintText: 'Masukkan password kamu',
+                            hintStyle: greyColorTextStyle.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w200,
+                            ),
+                            suffixIcon: const Icon(Icons.visibility),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 42,
+                        ),
+                        // Login Button
+                        SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                          child: ElevatedButton(
                             onPressed: () {
-                              router.goNamed(Routnames.signup);
+                              router.goNamed(Routnames.home);
                             },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: primaryColor1,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
                             child: Text(
-                              'Daftar disini',
-                              style: whiteColorTextStyle.copyWith(fontSize: 15),
+                              'Login',
+                              style: whiteColorTextStyle.copyWith(fontSize: 14),
                             ),
                           ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      )
-                    ],
+                        ),
+                        const SizedBox(height: 32),
+                        // Google Sign-in Button
+                        SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              // Tambahkan fungsi login dengan Google
+                            },
+                            icon: Image.asset(
+                              'lib/shared/assets/super g (2).png',
+                            ),
+                            label: Text('Masuk Dengan Google',
+                                style: blackColorTextStyle.copyWith(
+                                  fontSize: 14,
+                                )),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 40),
+                        // Sign-up Link
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Belum memiliki akun?',
+                              style: blackColorTextStyle.copyWith(fontSize: 12),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                router.goNamed(Routnames.signup);
+                              },
+                              child: Text(
+                                'Daftar disini',
+                                style: primaryColorTextStyle.copyWith(
+                                    fontSize: 12),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ]),
       ),
     );
   }
