@@ -25,7 +25,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor2,
+      backgroundColor: whiteColor,
       body: Center(
         child: Image.asset(
           "lib/shared/assets/amcc-logo.png",
