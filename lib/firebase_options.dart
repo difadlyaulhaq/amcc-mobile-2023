@@ -43,39 +43,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBs2gPyIjHkk5d79V3BZPAS_OqZeXtfvyg',
-    appId: '1:430846783836:android:d64e7d1f3b6bd60b939199',
-    messagingSenderId: '430846783836',
-    projectId: 'testingintermediate',
-    storageBucket: 'testingintermediate.appspot.com',
-  );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCyirPA_YVnhAcEybHqKK54F6nqdjJppe4',
-    appId: '1:430846783836:ios:7d491c1330a8a1b1939199',
-    messagingSenderId: '430846783836',
-    projectId: 'testingintermediate',
-    storageBucket: 'testingintermediate.appspot.com',
-    iosBundleId: 'com.example.intermediateProject',
-  );
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAREKsq5AA6qoIHt2MPda__dJgx259UNc0',
-    appId: '1:430846783836:web:cf61c9fa9dd449dd939199',
-    messagingSenderId: '430846783836',
-    projectId: 'testingintermediate',
-    authDomain: 'testingintermediate.firebaseapp.com',
-    storageBucket: 'testingintermediate.appspot.com',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCyirPA_YVnhAcEybHqKK54F6nqdjJppe4',
-    appId: '1:430846783836:ios:7d491c1330a8a1b1939199',
-    messagingSenderId: '430846783836',
-    projectId: 'testingintermediate',
-    storageBucket: 'testingintermediate.appspot.com',
-    iosBundleId: 'com.example.intermediateProject',
-  );
 
 }
